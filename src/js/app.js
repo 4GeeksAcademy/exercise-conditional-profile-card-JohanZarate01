@@ -23,7 +23,7 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
-  console.log("These are the current variables: ", variables); // print on the console
+  console.log(window.variables); // print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
@@ -34,12 +34,13 @@ function render(variables = {}) {
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${variables.name} ${variables.lastName}</h1>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/Johan-z91"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/johan-stiven-z%C3%A1rate-calder%C3%B3n-b997921a1/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/johan_bikerz/"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -55,9 +56,10 @@ window.onload = function() {
     // this is the image's url that will be used as a background for the profile cover
     background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://media.licdn.com/dms/image/D4E03AQG6eTSPvHevJg/profile-displayphoto-shrink_800_800/0/1694526664564?e=2147483647&v=beta&t=YhaUnj-9CdKNyCbt0-njOw_U2eDCk915WjYaR67108I",
     // social media bar position (left or right)
-    socialMediaPosition: "position-left",
+    socialMediaPosition: "position-right",
     // social media usernames
     twitter: null,
     github: null,
